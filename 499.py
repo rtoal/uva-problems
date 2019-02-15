@@ -1,12 +1,9 @@
 import sys
-from collections import defaultdict
-import string
+from collections import Counter
+from string import ascii_letters
 
 for line in sys.stdin:
-    counts = defaultdict(int)
-    for w in list(line.strip()):
-        if w in string.ascii_letters:
-            counts[w] += 1
-    max_count = max(counts.values())
-    letters = [w for w,c in counts.items() if c==max_count ]
+    counts = Counter(c for c in line if c in ascii_letters)
+    max_count = counts.most_common(1)[0][1]
+    letters = [w for w,c in counts.items() if c == max_count]
     print(''.join(sorted(letters)), max_count)
