@@ -1,6 +1,5 @@
 import sys
 
-
 while True:
     try:
         size, queries = map(int, sys.stdin.readline().split())
@@ -20,4 +19,4 @@ while True:
             else:
                 print(g[v][k-1])
     except:
-       break
+        break
